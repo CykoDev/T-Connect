@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/event_item.dart';
+import '../widgets/main_drawer.dart';
 
 class EventsScreen extends StatelessWidget {
+  static String routeName = '/events';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +49,7 @@ class EventsScreen extends StatelessWidget {
           ),
         ],
       ),
+      drawer: MainDrawer(),
     );
   }
 }
