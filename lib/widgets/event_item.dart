@@ -10,10 +10,12 @@ class EventItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Text('Title'),
                     Text('Subtitle'),
@@ -27,7 +29,7 @@ class EventItem extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   child: Image.network(
-                    '',
+                    'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
                     fit: BoxFit.contain,
                   ),
                 ),
