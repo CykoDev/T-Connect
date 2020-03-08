@@ -4,6 +4,7 @@ import 'screens/users_screen.dart';
 import 'screens/event_edit_screen.dart';
 import 'screens/event_screen.dart';
 import 'screens/form_fill_screen.dart';
+import 'screens/form_responses_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         EventEditScreen.routeName: (ctx) => EventEditScreen(),
         EventScreen.routeName: (ctx) => EventScreen(),
         FormFillScreen.routeName: (ctx) => FormFillScreen(),
+        FormResponsesScreen.routeName: (ctx) => FormResponsesScreen(),
       },
     );
   }
