@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'screens/events_screen.dart';
+import 'screens/users_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +22,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: EventsScreen(),
+      routes: {
+        UsersScreen.routeName: (ctx) => UsersScreen(),
+        EventsScreen.routeName: (ctx) => EventsScreen(),
+      },
     );
   }
 }
