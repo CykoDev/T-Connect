@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/main_drawer.dart';
-import '../widgets/user_item.dart';
+import '../../widgets/main_drawer.dart';
+import '../../widgets/user_item.dart';
 
 class UsersScreen extends StatelessWidget {
   static String routeName = '/users';

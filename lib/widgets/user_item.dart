@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../screens/user/user_info_screen.dart';
+import '../screens/user/user_edit_screen.dart';
+
 class UserItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Navigator.of(context).pushNamed(UserInfoScreen.routeName),
       child: Card(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -44,7 +47,7 @@ class UserItem extends StatelessWidget {
                       children: <Widget>[
                         IconButton(
                           icon: Icon(Icons.edit),
-                          onPressed: () {},
+                          onPressed: () => Navigator.of(context).pushNamed(UserEditScreen.routeName),
                         ),
                       ],
                     ),

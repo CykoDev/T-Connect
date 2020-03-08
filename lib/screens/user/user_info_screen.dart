@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../widgets/main_drawer.dart';
 
 class UserInfoScreen extends StatelessWidget {
-  static String routeName = '/user-info';
+  static String routeName = 'userinfo';
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +89,6 @@ class UserInfoScreen extends StatelessWidget {
           ),
         ),
       ),
-      drawer: MainDrawer(),
     );
   }
 }

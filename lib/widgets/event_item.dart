@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/event_screen.dart';
+import '../screens/event/event_screen.dart';
 
 class EventItem extends StatelessWidget {
   @override
