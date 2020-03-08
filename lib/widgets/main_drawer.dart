@@ -4,6 +4,8 @@ import '../screens/users_screen.dart';
 import '../screens/events_screen.dart';
 import '../screens/auth/login.dart';
 import '../screens/auth/signup.dart';
+import '../screens/user/info.dart';
+import '../screens/user/edit.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -45,6 +47,18 @@ class MainDrawer extends StatelessWidget {
               title: Text('Signup'),
               onTap: () {
                 Navigator.of(context).pushNamed(SignupScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('User Info'),
+              onTap: () {
+                Navigator.of(context).pushNamed(UserInfoScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Edit User'),
+              onTap: () {
+                Navigator.of(context).pushNamed(UserEditScreen.routeName);
               },
             ),
             // ListTile(
