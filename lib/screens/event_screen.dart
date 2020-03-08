@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../screens/form_fill_screen.dart';
+import '../screens/form_responses_screen.dart';
 
 class EventScreen extends StatelessWidget {
   static String routeName = '/event';
@@ -84,7 +85,7 @@ class EventScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pushNamed(FormResponsesScreen.routeName),
                   color: Colors.blue,
                   child: Text('VIEW RESPONSES'),
                   textColor: Colors.white,
