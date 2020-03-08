@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import '../../widgets/main_drawer.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   static String routeName = '/signup';
 
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,25 +27,27 @@ class SignupScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Text(
-                'Signup',
-                style: TextStyle(
-                  fontSize: 40,
+      body: Container(
+        child: Center(
+          child: ListView(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(20),
+                child: Center(
+                  child: Text(
+                    'Signup',
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.all(30),
+              Container(
+                padding: EdgeInsets.all(40),
                 child: MyCustomForm(),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       drawer: MainDrawer(),
@@ -47,7 +55,6 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-// Create a Form widget.
 class MyCustomForm extends StatefulWidget {
   @override
   MyCustomFormState createState() {
@@ -55,19 +62,21 @@ class MyCustomForm extends StatefulWidget {
   }
 }
 
-// Create a corresponding State class.
-// This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
-  //
-  // Note: This is a GlobalKey<FormState>,
-  // not a GlobalKey<MyCustomFormState>.
   final _formKey = GlobalKey<FormState>();
+
+  File _image;
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = image;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Build a Form widget using the _formKey created above.
     return Form(
       key: _formKey,
       child: Column(
@@ -76,6 +85,23 @@ class MyCustomFormState extends State<MyCustomForm> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Center(
+                child: _image == null
+                    ? Text('No image selected.')
+                    : Image.file(
+                        _image,
+                        height: 150,
+                        width: 150,
+                        fit: BoxFit.fitWidth,
+                      ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: RaisedButton(
+                  onPressed: getImage,
+                  child: Text('Pick Image'),
+                ),
+              ),
               TextFormField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
@@ -83,7 +109,44 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Required fields cannot be empty';
+                    return 'Username field cannot be empty';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'email',
+                ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Email field cannot be empty';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Phone no.',
+                ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Phone no. cannot be empty';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Team',
+                ),
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Team field cannot be empty';
                   }
                   return null;
                 },
@@ -96,7 +159,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 obscureText: true,
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Required fields cannot be empty';
+                    return 'Password cannot be empty';
                   }
                   return null;
                 },
@@ -105,10 +168,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: RaisedButton(
                   onPressed: () {
-                    // Validate returns true if the form is valid, or false
-                    // otherwise.
                     if (_formKey.currentState.validate()) {
-                      // If the form is valid, display a Snackbar.
                       Scaffold.of(context).showSnackBar(
                           SnackBar(content: Text('Processing Data')));
                     }
