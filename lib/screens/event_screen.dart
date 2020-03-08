@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/form_fill_screen.dart';
+
 class EventScreen extends StatelessWidget {
   static String routeName = '/event';
 
@@ -91,7 +93,7 @@ class EventScreen extends StatelessWidget {
                   width: 10,
                 ),
                 RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.of(context).pushNamed(FormFillScreen.routeName),
                   color: Colors.blue,
                   child: Text('FILL FORM'),
                   textColor: Colors.white,
