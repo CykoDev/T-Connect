@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'screens/events_screen.dart';
 import 'screens/users_screen.dart';
 import 'screens/event_edit_screen.dart';
+import 'screens/event_screen.dart';
+import 'screens/form_fill_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
         UsersScreen.routeName: (ctx) => UsersScreen(),
         EventsScreen.routeName: (ctx) => EventsScreen(),
         EventEditScreen.routeName: (ctx) => EventEditScreen(),
+        EventScreen.routeName: (ctx) => EventScreen(),
+        FormFillScreen.routeName: (ctx) => FormFillScreen(),
       },
     );
   }
