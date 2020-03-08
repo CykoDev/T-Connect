@@ -5,8 +5,45 @@ import '../../widgets/main_drawer.dart';
 
 import 'event_edit_screen.dart';
 
+import '../models/event.dart';
+
 class EventsScreen extends StatelessWidget {
   static String routeName = '/events';
+
+  final List<Event> events = [
+    Event(
+      id: '0',
+      title: 'Event1',
+      dateTime: 'DateTime(2020)',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+      description: 'description',
+    ),
+    Event(
+      id: '1',
+      title: 'Event2',
+      dateTime: 'DateTime(2020)',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+      description: 'description',
+    ),
+    Event(
+      id: '2',
+      title: 'Event3',
+      dateTime: 'DateTime(2020)',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+      description: 'description',
+    ),
+    Event(
+      id: '3',
+      title: 'Event4',
+      dateTime: 'DateTime(2020)',
+      imageUrl:
+          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+      description: 'description',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +75,15 @@ class EventsScreen extends StatelessWidget {
           Expanded(
             child: Container(
               padding: EdgeInsets.all(10),
-              child: ListView(
-                children: <Widget>[
-                  EventItem(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  EventItem(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  EventItem(),
-                ],
+              child: ListView.builder(
+                itemBuilder: (ctx, index) => EventItem(
+                  events[index].id,
+                  events[index].title,
+                  events[index].imageUrl,
+                  events[index].dateTime,
+                  events[index].description,
+                ),
+                itemCount: events.length,
               ),
             ),
           ),
@@ -57,7 +91,8 @@ class EventsScreen extends StatelessWidget {
       ),
       drawer: MainDrawer(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).pushNamed(EventEditScreen.routeName),
+        onPressed: () =>
+            Navigator.of(context).pushNamed(EventEditScreen.routeName),
         child: Icon(Icons.add),
       ),
     );
