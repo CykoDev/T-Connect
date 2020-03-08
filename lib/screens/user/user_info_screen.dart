@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'user_edit_screen.dart';
+
 class UserInfoScreen extends StatelessWidget {
   static String routeName = 'userinfo';
 
@@ -10,12 +12,8 @@ class UserInfoScreen extends StatelessWidget {
         title: Text('User Info'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () {},
+            icon: Icon(Icons.edit),
+            onPressed: () => Navigator.of(context).pushNamed(UserEditScreen.routeName),
           ),
         ],
       ),
