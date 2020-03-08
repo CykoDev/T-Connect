@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/form_fill_screen.dart';
-import '../screens/form_responses_screen.dart';
+import '../../screens/form/form_fill_screen.dart';
+import '../../screens/form/form_responses_screen.dart';
 
 class EventScreen extends StatelessWidget {
   static String routeName = '/event';

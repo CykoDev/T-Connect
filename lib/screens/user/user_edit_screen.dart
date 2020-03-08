@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import '../../widgets/main_drawer.dart';
 
 class UserEditScreen extends StatefulWidget {
-  static String routeName = '/UserEdit';
+  static String routeName = '/useredit';
 
   @override
   _UserEditScreenState createState() => _UserEditScreenState();
@@ -103,7 +102,6 @@ class _UserEditScreenState extends State<UserEditScreen> {
           ),
         ),
       ),
-      drawer: MainDrawer(),
     );
   }
 }

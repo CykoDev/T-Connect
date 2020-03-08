@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/event_item.dart';
-import '../widgets/main_drawer.dart';
+import '../../widgets/event_item.dart';
+import '../../widgets/main_drawer.dart';
 
-import '../screens/event_edit_screen.dart';
+import 'event_edit_screen.dart';
 
 import '../models/event.dart';
 

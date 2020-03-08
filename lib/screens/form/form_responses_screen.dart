@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/form_response.dart';
+import '../../widgets/form_response.dart';
 
 class FormResponsesScreen extends StatelessWidget {
   static String routeName = '/formresponses';
