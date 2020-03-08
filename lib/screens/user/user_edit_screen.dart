@@ -29,11 +29,7 @@ class _UserEditScreenState extends State<UserEditScreen> {
         title: Text('Edit User'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: Icon(Icons.done),
             onPressed: () {},
           ),
         ],
