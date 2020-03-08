@@ -5,6 +5,10 @@ import 'screens/auth/login.dart';
 import 'screens/auth/signup.dart';
 import 'screens/user/info.dart';
 import 'screens/user/edit.dart';
+import 'screens/event_edit_screen.dart';
+import 'screens/event_screen.dart';
+import 'screens/form_fill_screen.dart';
+import 'screens/form_responses_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,6 +28,10 @@ class MyApp extends StatelessWidget {
         SignupScreen.routeName: (ctx) => SignupScreen(),
         UserInfoScreen.routeName: (ctx) => UserInfoScreen(),
         UserEditScreen.routeName: (ctx) => UserEditScreen(),
+        EventEditScreen.routeName: (ctx) => EventEditScreen(),
+        EventScreen.routeName: (ctx) => EventScreen(),
+        FormFillScreen.routeName: (ctx) => FormFillScreen(),
+        FormResponsesScreen.routeName: (ctx) => FormResponsesScreen(),
       },
     );
   }
