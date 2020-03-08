@@ -5,7 +5,7 @@ import '../../widgets/main_drawer.dart';
 
 import 'event_edit_screen.dart';
 
-import '../models/event.dart';
+import '../../models/event.dart';
 
 class EventsScreen extends StatelessWidget {
   static String routeName = '/events';
