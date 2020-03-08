@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../screens/users_screen.dart';
 import '../screens/events_screen.dart';
+import '../screens/auth/login.dart';
+import '../screens/auth/signup.dart';
+import '../screens/user/info.dart';
+import '../screens/user/edit.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -21,13 +25,40 @@ class MainDrawer extends StatelessWidget {
             ListTile(
               title: Text('Home'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed(EventsScreen.routeName);
+                Navigator.of(context)
+                    .pushReplacementNamed(EventsScreen.routeName);
               },
             ),
             ListTile(
               title: Text('Users'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed(UsersScreen.routeName);
+                Navigator.of(context)
+                    .pushReplacementNamed(UsersScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Login'),
+              onTap: () {
+                Navigator.of(context)
+                    .pushReplacementNamed(LoginScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Signup'),
+              onTap: () {
+                Navigator.of(context).pushNamed(SignupScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('User Info'),
+              onTap: () {
+                Navigator.of(context).pushNamed(UserInfoScreen.routeName);
+              },
+            ),
+            ListTile(
+              title: Text('Edit User'),
+              onTap: () {
+                Navigator.of(context).pushNamed(UserEditScreen.routeName);
               },
             ),
             // ListTile(
