@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
+
+import '../screens/event_screen.dart';
 
 class EventItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Navigator.of(context).pushNamed(EventScreen.routeName),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
