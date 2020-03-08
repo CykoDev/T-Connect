@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/form/form_fill_screen.dart';
-import '../../screens/form/form_responses_screen.dart';
+import '../form/form_fill_screen.dart';
+import '../form/form_responses_screen.dart';
 
 class EventScreen extends StatelessWidget {
   static String routeName = '/event';
 
   @override
   Widget build(BuildContext context) {
+
+    final routeArgs = ModalRoute.of(context).settings.arguments as Map<String, String>;
+    final title = routeArgs['title'];
+    final date = routeArgs['date'];
+    final imageUrl = routeArgs['imageUrl'];
+    final description = routeArgs['description'];
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ACM Connect'),
@@ -27,7 +34,7 @@ class EventScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20),
             child: Text(
-              'Event',
+              title,
               style: TextStyle(
                 fontSize: 20,
               ),
@@ -46,7 +53,7 @@ class EventScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Text',
+                    date,
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -55,7 +62,7 @@ class EventScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Text',
+                    description,
                     style: TextStyle(
                       fontSize: 20,
                     ),
