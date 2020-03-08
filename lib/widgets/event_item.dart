@@ -3,10 +3,26 @@ import 'package:flutter/material.dart';
 import '../screens/event_screen.dart';
 
 class EventItem extends StatelessWidget {
+  final String id;
+  final String title;
+  final String imageUrl;
+  final String date;
+  final String description;
+
+  EventItem(this.id, this.title, this.imageUrl, this.date, this.description);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushNamed(EventScreen.routeName),
+      onTap: () => Navigator.of(context).pushNamed(
+        EventScreen.routeName,
+        arguments: {
+          'title': title,
+          'date': date,
+          'imageUrl': imageUrl,
+          'description': description,
+        },
+      ),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -18,8 +34,8 @@ class EventItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text('Title'),
-                    Text('Subtitle'),
+                    Text(title),
+                    Text(description),
                   ],
                 ),
               ),
@@ -30,7 +46,7 @@ class EventItem extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   child: Image.network(
-                    'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+                    imageUrl,
                     fit: BoxFit.contain,
                   ),
                 ),
