@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/event_item.dart';
 import '../widgets/main_drawer.dart';
 
+import '../screens/event_edit_screen.dart';
+
 class EventsScreen extends StatelessWidget {
   static String routeName = '/events';
 
@@ -36,8 +38,12 @@ class EventsScreen extends StatelessWidget {
           Expanded(
             child: Container(
               padding: EdgeInsets.all(10),
-              child: Column(
+              child: ListView(
                 children: <Widget>[
+                  EventItem(),
+                  SizedBox(
+                    height: 10,
+                  ),
                   EventItem(),
                   SizedBox(
                     height: 10,
@@ -50,6 +56,10 @@ class EventsScreen extends StatelessWidget {
         ],
       ),
       drawer: MainDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).pushNamed(EventEditScreen.routeName),
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
