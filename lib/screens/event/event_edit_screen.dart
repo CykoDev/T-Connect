@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+import '../../models/event.dart' as e;
 
 class EventEditScreen extends StatelessWidget {
   static String routeName = '/eventedit';
+
+  final FirebaseDatabase _database = FirebaseDatabase.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +16,7 @@ class EventEditScreen extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.done),
-            onPressed: () {},
+            onPressed: () => _addEvent(context),
           ),
         ],
       ),
@@ -96,7 +101,7 @@ class EventEditScreen extends StatelessWidget {
                   width: 10,
                 ),
                 RaisedButton(
-                  onPressed: () {},
+                  onPressed: () => _addEvent(context),
                   color: Colors.blue,
                   child: Text('CREATE/EDIT'),
                   textColor: Colors.white,
@@ -110,5 +115,11 @@ class EventEditScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _addEvent(BuildContext context) {
+    e.Event event = new e.Event(title: "AnEvent", dateTime: "2020", imageUrl: "dotcom", description: "blah blah blah");
+    _database.reference().child("events").push().set(event.toJson());
+    Navigator.pop(context);
   }
 }
