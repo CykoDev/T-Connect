@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/event_item.dart';
-import '../widgets/main_drawer.dart';
+import '../../widgets/form_response.dart';
 
-import '../screens/event_edit_screen.dart';
-
-class EventsScreen extends StatelessWidget {
-  static String routeName = '/events';
+class FormResponsesScreen extends StatelessWidget {
+  static String routeName = '/formresponses';
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +12,7 @@ class EventsScreen extends StatelessWidget {
         title: Text('ACM Connect'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: Icon(Icons.open_in_new),
             onPressed: () {},
           ),
         ],
@@ -29,7 +22,7 @@ class EventsScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20),
             child: Text(
-              'Upcoming Events',
+              'Form Responses',
               style: TextStyle(
                 fontSize: 20,
               ),
@@ -37,28 +30,23 @@ class EventsScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(10),
               child: ListView(
                 children: <Widget>[
-                  EventItem(),
                   SizedBox(
                     height: 10,
                   ),
-                  EventItem(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  EventItem(),
+                  FormResponse(),
+                  FormResponse(),
+                  FormResponse(),
+                  FormResponse(),
+                  FormResponse(),
+                  FormResponse(),
+                  FormResponse(),
                 ],
               ),
             ),
           ),
         ],
-      ),
-      drawer: MainDrawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).pushNamed(EventEditScreen.routeName),
-        child: Icon(Icons.add),
       ),
     );
   }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'screens/events_screen.dart';
-import 'screens/users_screen.dart';
-import 'screens/auth/login.dart';
-import 'screens/auth/signup.dart';
-import 'screens/user/info.dart';
-import 'screens/user/edit.dart';
-import 'screens/event_edit_screen.dart';
-import 'screens/event_screen.dart';
-import 'screens/form_fill_screen.dart';
-import 'screens/form_responses_screen.dart';
+import 'screens/event/events_screen.dart';
+import 'screens/user/users_screen.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/auth/signup_screen.dart';
+import 'screens/user/user_info_screen.dart';
+import 'screens/user/user_edit_screen.dart';
+import 'screens/event/event_edit_screen.dart';
+import 'screens/event/event_screen.dart';
+import 'screens/form/form_fill_screen.dart';
+import 'screens/form/form_responses_screen.dart';
 
 void main() => runApp(MyApp());
 

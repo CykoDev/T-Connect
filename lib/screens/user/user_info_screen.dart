@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../widgets/main_drawer.dart';
+
+import 'user_edit_screen.dart';
 
 class UserInfoScreen extends StatelessWidget {
-  static String routeName = '/user-info';
+  static String routeName = 'userinfo';
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +12,8 @@ class UserInfoScreen extends StatelessWidget {
         title: Text('User Info'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () {},
+            icon: Icon(Icons.edit),
+            onPressed: () => Navigator.of(context).pushNamed(UserEditScreen.routeName),
           ),
         ],
       ),
@@ -90,7 +87,6 @@ class UserInfoScreen extends StatelessWidget {
           ),
         ),
       ),
-      drawer: MainDrawer(),
     );
   }
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import '../../widgets/main_drawer.dart';
 
 class UserEditScreen extends StatefulWidget {
-  static String routeName = '/UserEdit';
+  static String routeName = '/useredit';
 
   @override
   _UserEditScreenState createState() => _UserEditScreenState();
@@ -30,11 +29,7 @@ class _UserEditScreenState extends State<UserEditScreen> {
         title: Text('Edit User'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
+            icon: Icon(Icons.done),
             onPressed: () {},
           ),
         ],
@@ -103,7 +98,6 @@ class _UserEditScreenState extends State<UserEditScreen> {
           ),
         ),
       ),
-      drawer: MainDrawer(),
     );
   }
 }
