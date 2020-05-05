@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "701197912083",
-    "firebase_url": "https://database-test-e06d2.firebaseio.com",
-    "project_id": "database-test-e06d2",
-    "storage_bucket": "database-test-e06d2.appspot.com"
+    "project_number": "548901824101",
+    "firebase_url": "https://acm-connect-f19d7.firebaseio.com",
+    "project_id": "acm-connect-f19d7",
+    "storage_bucket": "acm-connect-f19d7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:701197912083:android:26bb5dd10fa06274d997e6",
+        "mobilesdk_app_id": "1:548901824101:android:2e07744b183b122fa2488c",
         "android_client_info": {
           "package_name": "com.acm.acm_connect"
         }
       },
       "oauth_client": [
         {
-          "client_id": "701197912083-169btlp946il39j8eeddo166mmelseni.apps.googleusercontent.com",
+          "client_id": "548901824101-9aln1c15r5adf7aano63ipdg0fr2mekc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCkQfiWwWc8toTyNlvVsPul953HtjNx7j8"
+          "current_key": "AIzaSyDuvaIwSfEi5viIcXalX9UWvB3VbrL9knU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "701197912083-169btlp946il39j8eeddo166mmelseni.apps.googleusercontent.com",
+              "client_id": "548901824101-9aln1c15r5adf7aano63ipdg0fr2mekc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

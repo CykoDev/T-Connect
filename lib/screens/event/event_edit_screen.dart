@@ -118,7 +118,13 @@ class EventEditScreen extends StatelessWidget {
   }
 
   _addEvent(BuildContext context) {
-    e.Event event = new e.Event(title: "AnEvent", dateTime: "2020", imageUrl: "dotcom", description: "blah blah blah");
+    e.Event event = new e.Event(
+      title: "AnEvent",
+      dateTime: "2020",
+      imageUrl:
+          "https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg",
+      description: "blah blah blah",
+    );
     _database.reference().child("events").push().set(event.toJson());
     Navigator.pop(context);
   }

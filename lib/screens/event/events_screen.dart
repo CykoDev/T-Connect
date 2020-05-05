@@ -17,52 +17,42 @@ class EventsScreen extends StatefulWidget {
 
 class _EventsScreenState extends State<EventsScreen> {
   final FirebaseDatabase _database = FirebaseDatabase.instance;
-  
+
   var _onEventAddedSubscription;
+  var _onEventChangedSubscription;
   Query _eventsQuery;
 
-  List<e.Event> eventsList = new List();
-
-  final List<e.Event> events = [
-    e.Event(
-      title: 'Event1',
-      dateTime: 'DateTime(2020)',
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      description: 'description',
-    ),
-    e.Event(
-      title: 'Event2',
-      dateTime: 'DateTime(2020)',
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      description: 'description',
-    ),
-    e.Event(
-      title: 'Event3',
-      dateTime: 'DateTime(2020)',
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      description: 'description',
-    ),
-    e.Event(
-      title: 'Event4',
-      dateTime: 'DateTime(2020)',
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      description: 'description',
-    ),
-  ];
+  List<e.Event> _eventsList = new List();
 
   @override
   void initState() {
     _eventsQuery = _database.reference().child('events');
     _onEventAddedSubscription = _eventsQuery.onChildAdded.listen(_onEntryAdded);
+    _onEventChangedSubscription = _eventsQuery.onChildChanged.listen(_onEntryChanged);
     super.initState();
   }
 
-  _onEntryAdded (Event event) {
+  @override
+  void dispose() {
+    _onEventAddedSubscription.cancel();
+    _onEventChangedSubscription.cancel();
+    super.dispose();
+  }
 
+  _onEntryAdded(Event event) {
+    setState(() {
+      _eventsList.add(e.Event.fromSnapshot(event.snapshot));
+    });
+  }
+
+  _onEntryChanged(Event event) {
+    var oldEntry = _eventsList.singleWhere((entry) {
+      return entry.id == event.snapshot.key;
+    });
+    setState(() {
+      _eventsList[_eventsList.indexOf(oldEntry)] =
+          e.Event.fromSnapshot(event.snapshot);
+    });
   }
 
   @override
@@ -97,13 +87,13 @@ class _EventsScreenState extends State<EventsScreen> {
               padding: EdgeInsets.all(10),
               child: ListView.builder(
                 itemBuilder: (ctx, index) => EventItem(
-                  events[index].id,
-                  events[index].title,
-                  events[index].imageUrl,
-                  events[index].dateTime,
-                  events[index].description,
+                  _eventsList[index].id,
+                  _eventsList[index].title,
+                  _eventsList[index].imageUrl,
+                  _eventsList[index].dateTime,
+                  _eventsList[index].description,
                 ),
-                itemCount: events.length,
+                itemCount: _eventsList.length,
               ),
             ),
           ),
@@ -117,10 +107,5 @@ class _EventsScreenState extends State<EventsScreen> {
         child: Icon(Icons.add),
       ),
     );
-  }
-
-  _addEvent() {
-    e.Event event = new e.Event(title: "AnEvent", dateTime: "2020", imageUrl: "dotcom", description: "blah blah blah");
-    _database.reference().child("events").push().set(event.toJson());
   }
 }
